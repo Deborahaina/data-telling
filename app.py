@@ -31,7 +31,7 @@ else:
     from config import remote_db_endpoint, remote_dbuser, remote_dbpwd, remote_dbname, remote_db_port
 
 
-dburl= f"mysql://{remote_dbuser}:{remote_dbpwd}@{remote_endpoint}:{remote_port}/{remote_dbname}"
+dburl= f"mysql://{remote_dbuser}:{remote_dbpwd}@{remote_db_endpoint}:{remote_db_port}/{remote_dbname}"
 
 app = Flask(__name__)
 
