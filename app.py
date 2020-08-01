@@ -28,10 +28,10 @@ if is_prod:
     port = os.environ.get('port')	
     username = os.environ.get('username')	
 else:	
-    from config import endpoint, user, password, instance, port
+    from config import endpoint, username, password, instance, port
 
 
-dburl= f"mysql://{user}:{password}@{endpoint}:{port}/{instance}"
+dburl= f"mysql://{username}:{password}@{endpoint}:{port}/{instance}"
 
 app = Flask(__name__)
 
