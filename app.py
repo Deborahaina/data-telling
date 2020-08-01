@@ -41,7 +41,7 @@ app.config["SQLALCHEMY_DATABASE_URI"] = dburl
 app.config['JSON_SORT_KEYS'] = False  
 
 db = SQLAlchemy(app)
-engine = create_engine(f"mysql://{user}:{password}@{endpoint}:{port}/{instance}")
+engine = create_engine(f"mysql://{username}:{password}@{endpoint}:{port}/{instance}")
 conn = engine.connect()
 
 Base = automap_base()
