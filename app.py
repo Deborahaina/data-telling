@@ -28,7 +28,7 @@ if is_prod:
     port = os.environ.get('port')	
     username = os.environ.get('username')	
 else:	
-    from config import remote_endpoint, remote_dbuser, remote_dbpwd, remote_dbname, remote_port
+    from config import remote_db_endpoint, remote_dbuser, remote_dbpwd, remote_dbname, remote_db_port
 
 
 dburl= f"mysql://{remote_dbuser}:{remote_dbpwd}@{remote_endpoint}:{remote_port}/{remote_dbname}"
