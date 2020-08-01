@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="title icon" type="image/png" href="..static/css/title-img.png">
+    <!---- bootstrap cdn-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!---- fontawesome css-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+     integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+     <!-----google fonts-->
+     <link href="https://fonts.googleapis.com/css2?family=Herr+Von+Muellerhoff&family=Roboto+Mono:wght@200&family=Source+Serif+Pro:wght@300&display=swap"
+      rel="stylesheet">
+     <link rel="stylesheet" href="../static/css/styles.css">
+    <title>Portfolio webpage</title>
+</head>
+<body>
+    <!--- Start of navbar-->
+<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+    <button type="button" class="navbar-toggler  ml-3" data-toggle="collapse" data-target="#navbarNav" aria-control="navbarNav">
+      <span class="navbar-toggler-icon "></span></button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item px-3 active"><a class="nav-link link-special text-capitalize font-weight-bold text-light" href="#">Home</a></li>
+          <li class="nav-item px-3 active"><a class="nav-link link-special text-capitalize font-weight-bold text-light" href="#">Skills</a></li>
+       
+                <!----Dropdown-->
+                <li class="nav-item px-3 active"><a class="nav-link link-special text-capitalize font-weight-bold text-light" href="#">Projects</a></li>
+                  <!----- <a class="nav-link link-special text-light text-uppercase font-weight-bold px-3 dropdown-toggle" href="#" data-toggle="dropdown">Projects</a>
+                <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Project 1</a>
+        <a class="dropdown-item" href="#">Project 2</a>
+    <a class="dropdown-item" href="#">Project 3</a>
+<a class="dropdown-item" href="#">Project 4</a></div> ---->
+          <li class="nav-item px-3 active"><a class="nav-link link-special text-capitalize font-weight-bold text-light" href="#">Machine Learning</a></li>
+          <li class="nav-item px-3 active"><a class="nav-link link-special text-capitalize font-weight-bold text-light" href="#">Blog</a></li>
+        </ul>
+      </div>
+  </nav>
+  
+  <header>
+    <div class="hero-image">
+  
+      <div class="hero-text">
+        <h1 id="first-letter">W <span>elcome!</span></h1>
+        <div class="text-area mb-3">
+        <span>i</span>
+        <span class="ml-2">a</span>
+        <span>m</span>
+        <span class="ml-2">d</span>
+        <span>e</span>
+        <span>b</span>
+        <span>o</span>
+        <span>r</span>
+        <span>a</span>
+        <span>h</span>
+        <span class="ml-2">a</span>
+        <span>i</span>
+        <span>n</span>
+        <span>a</span>
+        </div>
+      <p class="first-paragraph">Explore the world of Data and Machine Learning with me</p>
+        <p id="banner-btn"><a class="active" href="#">Click Me!</a>
+          <a class="active" href="#">Click Me!</a>
+        </p>
+      </div>
+      </div>
+    </div>
+  </header>
+  
+
+
+
+
+ <!-- skills -->
+ <section class="bg-light p-5">
+    <div class="container-fluid">
+        <!-- title -->
+        <div class="row">
+            <div class="col text-center mb-3">
+                <h1 class="display-2" id='first-letter'>Skills</h1>
+                <p class="lead text-secondary">A brief summary of the programming languages, frameworks, libraries and algorithms I work with</p>
+            </div>
+        </div>
+        <!-- end of title -->
+        <div class="row text-center">
+            <div class="col-lg-4 col-sm-10 mx-auto mb-5">
+                <i class="fas fa-desktop fa-6x text-warning mb-3"></i>
+                <h1 class="text-secondary display-2">Development</h1>
+                <p class="text-muted my-4">Deploy modern and scalable predictive analytics built for the web using flask on the backend,javascript on the front database and storage include  MySQL, MongoDB as well as AWS S3 buckets and EC2 instances</p>
+                <a href="#" class="btn btn-outline-warning" id="btn-banner">Learn More</a>
+            </div>
+            <div class="col-lg-4 col-sm-10 mx-auto mb-5">
+                <i class="fas fa-chart-line fa-6x text-warning mb-3"></i>
+                <h1 class=" text-secondary display-2">Visualizations</h1>
+                <p class="text-muted my-4">Create dynamic, informative interactive dashborads and visualizations to solve and answer real business problems. Libraries used inlcude d3.js, plotly.js, Javascripts mapping library leaflet and data-tables</p>
+                <a href="#" class="btn btn-outline-warning" id="btn-banner">Learn More</a>
+            </div>
+            <div class="col-lg-4 col-sm-10 mx-auto mb-5">
+                <i class="fas fa-project-diagram fa-6x text-warning mt-3"></i>
+                <h1 class="text-secondary display-2">Machine Learning</h1>
+                <p class="text-muted my-4">Explore the world of applied statistics and recommendation systems starting with linear models, trees, deep learning. Libraries used are scikit learn, tensorflow</p>
+                <a href="#" class="btn btn-outline-warning" id="btn-banner">Learn More</a>
+            </div>
+        </div>
+    </div>
+ </section>
+ <!-- end of skills -->
+
+  
+
+<!----Projects-->
+<section class="p-5">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center mb-5">
+            <h1 class="display-2" id='first-letter'>Projects</h1>
+            <p class="lead text-secondary">Explore the projects page. Click on each of the projects to learn more about them</p>
+        </div>
+    </div>
+        <div class="row">
+            <div class="col-lg-3 col-sm-6">
+                <img class="img-thumbnail" src="../static/css/project1.jpg" alt="Project 1">
+                <h2 class="text-warning">Web Scraping</h2>
+                <p class="text-muted">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <img  class="img-thumbnail" src="../static/css/project2.jpg" alt="Project 1">
+                <h2 class="text-warning">ML Classifications</h2>
+                <p class="text-muted">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+            </div>
+            <div class="col-lg-3 col-sm-6">
+                <img  class="img-thumbnail" src="../static/css/project3.jpg" alt="Project 1">
+                <h2 class="text-warning">Neural Networks</h2>
+                <p class="text-muted">
+                    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                     Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                </p>
+            </div>
+        <div class="col-lg-3 col-sm-6">
+                <img  class="img-thumbnail" src="../static/css/project4.jpg" alt="Project 1">
+                <h2 class="text-warning">Natural Language processing</h2>
+                <p class="text-muted">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."</p>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<!-- End of Projects-->
+
+<!--- Team-->
+<section class="bg-dark p-5" id="darkie">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center mb-3">
+            <h1 class="display-2" id='first-letter'>Team</h1>
+            <p class="lead text-light">Explore the projects page. Click on each of the projects to learn more about them</p>
+        </div>
+    </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-4 mx-auto mb-4">
+            <div class="card">
+                <img src="../static/css/kid1.jpg" class="card-img-top" alt="Deborah">
+                <div class="card-body">
+                  <h5 class="card-title">Deborah</h5>
+                  <div class="card-subtitle text-secondary">Some quick example text to build on the card title and make up the bulk of the card's content.</div>
+                  <div class="text-right">
+                  <a href="#"> <i class="fab fa-facebook fa-2x mx-2"></i>
+                    <i class="fab fa-twitter fa-2x mx-2 text-info"></i>
+                    <i class="fab fa-linkedin fa-2x mx-2"></i></a>
+                      </div>
+                </div>
+              </div>
+              </div>
+              <div class="col-lg-4 mx-auto mb-4">
+                <div class="card">
+                    <img src="../static/css/kid2.jpg" class="card-img-top" alt="Deborah">
+                    <div class="card-body">
+                      <h5 class="card-title">Deborah</h5>
+                      <div class="card-subtitle text-secondary">Some quick example text to build on the card title and make up the bulk of the card's content.</div>
+                      <div class="text-right">
+                      <a href="#"> <i class="fab fa-facebook fa-2x mx-2"></i>
+                        <i class="fab fa-twitter fa-2x mx-2 text-info"></i>
+                        <i class="fab fa-linkedin fa-2x mx-2"></i></a>
+                          </div>
+                    </div>
+                  </div>
+                  </div>
+
+                  <div class="col-lg-4 mx-auto mb-4">
+                    <div class="card">
+                        <img src="../static/css/kid3.jpg" class="card-img-top" alt="Deborah">
+                        <div class="card-body">
+                          <h5 class="card-title">Deborah</h5>
+                          <div class="card-subtitle text-secondary">Some quick example text to build on the card title and make up the bulk of the card's content.</div>
+                          <div class="text-right">
+                          <a href="#"> <i class="fab fa-facebook fa-2x mx-2"></i>
+                            <i class="fab fa-twitter fa-2x mx-2 text-info"></i>
+                            <i class="fab fa-linkedin fa-2x mx-2"></i></a>
+                              </div>
+                        </div>
+                      </div>
+                      </div>
+        </div>
+    </div>
+</section>
+<!--End of Team Section-->
+
+<!---Contact form-->
+<section class="p-5">
+    <div class="container">
+        <div class="row ">
+            <div class="col text-center mb-3">
+                <h1 class="display-2" id="first-letter">Contact</h1>
+                <h2 class="lead text-center text-secondary font-weight-bold">Got Questions?</h2>
+                   <p><span class="text-muted">Please stay connected!</span></p>
+                    </div>
+                        </div>
+                            <div class="row justify-content-center">
+                         <div class="col-lg-6 col-sm-10">
+                    <form>
+                <div class="form-group">
+            <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    </div>
+<div class="form-group mb-4">
+    <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1">
+            </div>
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Message</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea></div>
+                <button type="submit" class="btn-outline-warning btn-inline-block" id="btn-banner">Submit Question</button>
+            </form>
+        </div>
+    </div>
+</div>
+</section>
+<!---end of contact form-->
+
+<!---footer-->
+<footer class="bg-dark pt-5 px-5" id="darkie">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col text-center">
+                <h1 class="text-light text-capitalize font-weight-bold">Data Driven Business Solutions</h1>
+                <h3 class="mb-3" id="first-letter">follow the data lead! </h3>
+
+                <div class="py-2 ">
+                    <a href="#"><i class="fab fa-facebook text-info fa-2x mx-3"></i></a>
+                    <a href="#"><i class="fab fa-github text-secondary fa-2x mx-3"></i></a>
+                    <a href="#"><i class="fab fa-twitter fa-2x mx-3 "></i></a>
+                    <a href="#"><i class="fab fa-linkedin text-secondary fa-2x mx-3"></i></a>
+                </div>
+                <p class="text-light py-4 m-0">&copy;Copyright 2020-Made by Deborah Aina</p>
+
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/logic.js') }}"></script>
+</body>
+</html>
