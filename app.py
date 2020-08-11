@@ -74,34 +74,6 @@ def stock_analysis_():
     return jsonify(stocks_data_json)
 
 
-@app.route("/metadata/<sample>")
-def sample_metadata(sample):
-    """Return the MetaData for a given sample."""
-    sel = [
-        Samples_Metadata.sample,
-        Samples_Metadata.ETHNICITY,
-        Samples_Metadata.GENDER,
-        Samples_Metadata.AGE,
-        Samples_Metadata.LOCATION,
-        Samples_Metadata.BBTYPE,
-        Samples_Metadata.WFREQ,
-    ]
-
-    results = db.session.query(*sel).filter(Samples_Metadata.sample == sample).all()
-
-    # Create a dictionary entry for each row of metadata information
-    sample_metadata = {}
-    for result in results:
-        sample_metadata["sample"] = result[0]
-        sample_metadata["ETHNICITY"] = result[1]
-        sample_metadata["GENDER"] = result[2]
-        sample_metadata["AGE"] = result[3]
-        sample_metadata["LOCATION"] = result[4]
-        sample_metadata["BBTYPE"] = result[5]
-        sample_metadata["WFREQ"] = result[6]
-
-    print(sample_metadata)
-    return jsonify(sample_metadata)
 
 @app.route("/metadata/<sample>")
 def preferredStocks(sample):
@@ -109,7 +81,7 @@ def preferredStocks(sample):
 
     # Filter the data based on the ticker submitted by the user
     #AMD, SHOP, ADP, GE etc
-    stocks_data = pd.read_sql("SELECT * FROM trending_stocks", conn)
+    stocks_data = pd.read_sql("SELECT * FROM Stocks_table", conn)
     stocks_data = stocks_data.loc[stocks_data["Ticker"] == choice]
     stocksChosen_json = stocks_data.to_dict(orient="records")
 
