@@ -47,19 +47,18 @@ conn = engine.connect()
 Base = automap_base()
 Base.prepare(engine, reflect=True)
 
+#Save reference to tables in the db
+Stocks_table = Base.classes.stocks
+
 
 
 @app.route("/")
 def index():
     return render_template('index.html')
 
-@app.route("/dashboard")
-def dashboard():
-    return render_template('dashboard.html')
-
 @app.route("/visualizations")
 def visuals():
-    return render_template('viz.html')
+    return render_template('stocks.html')
 
 @app.route("/skills")
 def techincal_skills():
@@ -70,14 +69,42 @@ def techincal_skills():
 def stock_analysis_():
     conn = engine.connect()
     #create list of columns
-    stocks_data = pd.read_sql("SELECT * FROM trending_stocks", conn)
+    stocks_data = pd.read_sql("SELECT * FROM Stocks_table", conn)
     stocks_data_json = stocks_data.to_dict(orient="records")
     return jsonify(stocks_data_json)
 
 
+@app.route("/metadata/<sample>")
+def sample_metadata(sample):
+    """Return the MetaData for a given sample."""
+    sel = [
+        Samples_Metadata.sample,
+        Samples_Metadata.ETHNICITY,
+        Samples_Metadata.GENDER,
+        Samples_Metadata.AGE,
+        Samples_Metadata.LOCATION,
+        Samples_Metadata.BBTYPE,
+        Samples_Metadata.WFREQ,
+    ]
 
-@app.route("/stocks_data/<choice>")
-def preferredStocks(choice):
+    results = db.session.query(*sel).filter(Samples_Metadata.sample == sample).all()
+
+    # Create a dictionary entry for each row of metadata information
+    sample_metadata = {}
+    for result in results:
+        sample_metadata["sample"] = result[0]
+        sample_metadata["ETHNICITY"] = result[1]
+        sample_metadata["GENDER"] = result[2]
+        sample_metadata["AGE"] = result[3]
+        sample_metadata["LOCATION"] = result[4]
+        sample_metadata["BBTYPE"] = result[5]
+        sample_metadata["WFREQ"] = result[6]
+
+    print(sample_metadata)
+    return jsonify(sample_metadata)
+
+@app.route("/metadata/<sample>")
+def preferredStocks(sample):
     conn = engine.connect()
 
     # Filter the data based on the ticker submitted by the user

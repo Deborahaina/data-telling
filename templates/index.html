@@ -18,15 +18,13 @@
 </head>
 <body>
     <!--- Start of navbar-->
-<nav class="navbar navbar-expand-md navbar-dark fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
     <button type="button" class="navbar-toggler  ml-3" data-toggle="collapse" data-target="#navbarNav" aria-control="navbarNav">
       <span class="navbar-toggler-icon "></span></button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item px-3 active"><a class="nav-link link-special text-capitalize font-weight-bold text-light" href="#">Home</a></li>
-          <li class="nav-item px-3 active"><a class="nav-link link-special text-capitalize font-weight-bold text-light" href="#">Skills</a></li>
-       
-                <!----Dropdown-->
+        <!----Dropdown-->
                 <li class="nav-item px-3 active"><a class="nav-link link-special text-capitalize font-weight-bold text-light" href="#">Projects</a></li>
                   <!----- <a class="nav-link link-special text-light text-uppercase font-weight-bold px-3 dropdown-toggle" href="#" data-toggle="dropdown">Projects</a>
                 <div class="dropdown-menu">
@@ -70,6 +68,7 @@
     </div>
   </header>
   
+  
 
 
 
@@ -89,19 +88,50 @@
             <div class="col-lg-4 col-sm-10 mx-auto mb-5">
                 <i class="fas fa-desktop fa-6x text-warning mb-3"></i>
                 <h1 class="text-secondary display-2">Development</h1>
-                <p class="text-muted my-4">Deploy modern and scalable predictive analytics built for the web using flask on the backend,javascript on the front database and storage include  MySQL, MongoDB as well as AWS S3 buckets and EC2 instances</p>
+                <p class="text-muted my-4">Deploy modern and scalable predictive analytics and dashboarsd for the web.</p>
+                
+                <div class="card" >
+                    <div class="card-header bg-secondary">
+                      Frameworks and Libraries
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Flask, Django, Pandas, Matplotlib</li>
+                      <li class="list-group-item">React, Jquery, D3, Plotly</li>
+                      <li class="list-group-item">Heroku</li>
+                    </ul>
+                  </div>
                 <a href="#" class="btn btn-outline-warning" id="btn-banner">Learn More</a>
             </div>
             <div class="col-lg-4 col-sm-10 mx-auto mb-5">
                 <i class="fas fa-chart-line fa-6x text-warning mb-3"></i>
                 <h1 class=" text-secondary display-2">Visualizations</h1>
-                <p class="text-muted my-4">Create dynamic, informative interactive dashborads and visualizations to solve and answer real business problems. Libraries used inlcude d3.js, plotly.js, Javascripts mapping library leaflet and data-tables</p>
+                <p class="text-muted my-4">Create dynamic, informative interactive dashborads and visualizations</p>
+                <div class="card" >
+                    <div class="card-header bg-secondary">
+                      Web Dashboards
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">D3, plotly</li>
+                      <li class="list-group-item">Leaflet,mapbox,google maps</li>
+                      <li class="list-group-item">GGplot</li>
+                    </ul>
+                  </div>
                 <a href="#" class="btn btn-outline-warning" id="btn-banner">Learn More</a>
             </div>
             <div class="col-lg-4 col-sm-10 mx-auto mb-5">
                 <i class="fas fa-project-diagram fa-6x text-warning mt-3"></i>
                 <h1 class="text-secondary display-2">Machine Learning</h1>
-                <p class="text-muted my-4">Explore the world of applied statistics and recommendation systems starting with linear models, trees, deep learning. Libraries used are scikit learn, tensorflow</p>
+                <p class="text-muted my-4">Explore the world of applied statistics, clustering and recommendation systems.</p>
+                <div class="card" >
+                    <div class="card-header bg-secondary">
+                      Algorithms
+                    </div>
+                    <ul class="list-group list-group-flush">
+                      <li class="list-group-item">Scikit learn</li>
+                      <li class="list-group-item">SVM</li>
+                      <li class="list-group-item">Trees</li>
+                    </ul>
+                  </div>
                 <a href="#" class="btn btn-outline-warning" id="btn-banner">Learn More</a>
             </div>
         </div>
@@ -123,14 +153,14 @@
         <div class="row">
             <div class="col-lg-3 col-sm-6">
                 <img class="img-thumbnail" src="../static/css/project1.jpg" alt="Project 1">
-                <h2 class="text-warning">Web Scraping</h2>
+                <h2 class="text-warning">Visualization of Complex Data</h2>
                 <p class="text-muted">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
                      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <img  class="img-thumbnail" src="../static/css/project2.jpg" alt="Project 1">
+                <img  class="img-thumbnail mb-1" src="../static/css/machine-learning.jpg" alt="Project 1">
                 <h2 class="text-warning">ML Classifications</h2>
                 <p class="text-muted">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -138,8 +168,8 @@
                      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
             </div>
             <div class="col-lg-3 col-sm-6">
-                <img  class="img-thumbnail" src="../static/css/project3.jpg" alt="Project 1">
-                <h2 class="text-warning">Neural Networks</h2>
+                <img  class="img-thumbnail" src="../static/css/machine-learning.jpg" alt="Project 1">
+                <h2 class="text-warning">ML Clustering</h2>
                 <p class="text-muted">
                     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
                     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
@@ -160,63 +190,7 @@
 </section>
 <!-- End of Projects-->
 
-<!--- Team-->
-<section class="bg-dark p-5" id="darkie">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center mb-3">
-            <h1 class="display-2" id='first-letter'>Team</h1>
-            <p class="lead text-light">Explore the projects page. Click on each of the projects to learn more about them</p>
-        </div>
-    </div>
-        <div class="row justify-content-center">
-            <div class="col-lg-4 mx-auto mb-4">
-            <div class="card">
-                <img src="../static/css/kid1.jpg" class="card-img-top" alt="Deborah">
-                <div class="card-body">
-                  <h5 class="card-title">Deborah</h5>
-                  <div class="card-subtitle text-secondary">Some quick example text to build on the card title and make up the bulk of the card's content.</div>
-                  <div class="text-right">
-                  <a href="#"> <i class="fab fa-facebook fa-2x mx-2"></i>
-                    <i class="fab fa-twitter fa-2x mx-2 text-info"></i>
-                    <i class="fab fa-linkedin fa-2x mx-2"></i></a>
-                      </div>
-                </div>
-              </div>
-              </div>
-              <div class="col-lg-4 mx-auto mb-4">
-                <div class="card">
-                    <img src="../static/css/kid2.jpg" class="card-img-top" alt="Deborah">
-                    <div class="card-body">
-                      <h5 class="card-title">Deborah</h5>
-                      <div class="card-subtitle text-secondary">Some quick example text to build on the card title and make up the bulk of the card's content.</div>
-                      <div class="text-right">
-                      <a href="#"> <i class="fab fa-facebook fa-2x mx-2"></i>
-                        <i class="fab fa-twitter fa-2x mx-2 text-info"></i>
-                        <i class="fab fa-linkedin fa-2x mx-2"></i></a>
-                          </div>
-                    </div>
-                  </div>
-                  </div>
 
-                  <div class="col-lg-4 mx-auto mb-4">
-                    <div class="card">
-                        <img src="../static/css/kid3.jpg" class="card-img-top" alt="Deborah">
-                        <div class="card-body">
-                          <h5 class="card-title">Deborah</h5>
-                          <div class="card-subtitle text-secondary">Some quick example text to build on the card title and make up the bulk of the card's content.</div>
-                          <div class="text-right">
-                          <a href="#"> <i class="fab fa-facebook fa-2x mx-2"></i>
-                            <i class="fab fa-twitter fa-2x mx-2 text-info"></i>
-                            <i class="fab fa-linkedin fa-2x mx-2"></i></a>
-                              </div>
-                        </div>
-                      </div>
-                      </div>
-        </div>
-    </div>
-</section>
-<!--End of Team Section-->
 
 <!---Contact form-->
 <section class="p-5">
@@ -255,7 +229,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col text-center">
-                <h1 class="text-light text-capitalize font-weight-bold">Data Driven Business Solutions</h1>
+                <h1 class="text-light text-capitalize font-weight-bold">Data Driven Solutions</h1>
                 <h3 class="mb-3" id="first-letter">follow the data lead! </h3>
 
                 <div class="py-2 ">
