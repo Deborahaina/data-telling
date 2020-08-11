@@ -58,7 +58,7 @@ def index():
 
 @app.route("/visualizations")
 def visuals():
-    return render_template('stocks.html')
+    return render_template('viz.html')
 
 @app.route("/skills")
 def techincal_skills():
