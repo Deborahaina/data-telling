@@ -78,12 +78,10 @@ header {
   }
 
   .jumbotron{
-
     margin-top: 20px;
     margin-bottom:20px;
     margin-left:10%;
     margin-right:10%;
-
   }
 
 /* Name animation */
@@ -224,9 +222,17 @@ font-weight: none;
  .text-area span{
    font-size: 2rem;
  }
- /*.navbar-dark{
-   background-color: #333;
- } */
+
+ #first-letter{
+  font-family: var(--secondary-font);
+  font-size: 3rem;
+  color: #c59d5f;
+  padding-bottom: 0.5rem;
+  z-index: 600;
+  opacity:0;
+  animation: fadeUp 4.0s forwards;
+  animation-delay: 4.0s;
+}
  
  .navbar-dark,.nav-item{
    justify-content: center;
