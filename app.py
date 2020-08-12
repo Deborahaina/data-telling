@@ -58,34 +58,13 @@ def index():
 
 @app.route("/visualizations")
 def visuals():
-    return render_template('viz.html')
+    return render_template('stocks.html')
 
 @app.route("/skills")
 def techincal_skills():
     return render_template('skills.html')
 
 
-@app.route("/stocks_data")
-def stock_analysis_():
-    conn = engine.connect()
-    #create list of columns
-    stocks_data = pd.read_sql("SELECT * FROM trending_stocks", conn)
-    stocks_data_json = stocks_data.to_dict(orient="records")
-    return jsonify(stocks_data_json)
-
-
-
-@app.route("/metadata/<sample>")
-def preferredStocks(sample):
-    conn = engine.connect()
-
-    # Filter the data based on the ticker submitted by the user
-    #AMD, SHOP, ADP, GE etc
-    stocks_data = pd.read_sql("SELECT * FROM trending_stocks", conn)
-    stocks_data = stocks_data.loc[stocks_data["Ticker"] == choice]
-    stocksChosen_json = stocks_data.to_dict(orient="records")
-
-    return jsonify(stocksChosen_json)
 
 
 if __name__ == "__main__":

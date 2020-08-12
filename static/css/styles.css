@@ -49,6 +49,10 @@ header {
     overflow: hidden;
     z-index: 500;
   }
+
+  .navbar-dark{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+  }
   /* Welcome word Styling */
   #first-letter{
     font-family: var(--secondary-font);
@@ -70,6 +74,15 @@ header {
     padding-bottom: 0.5rem;
     animation:fadeDown 5.0s forwards;
     animation-delay: 6.0s;
+  }
+
+  .jumbotron{
+
+    margin-top: 20px;
+    margin-bottom:20px;
+    margin-left:10%;
+    margin-right:10%;
+
   }
 
 /* Name animation */
@@ -149,6 +162,23 @@ header {
     text-transform: uppercase;
   
   }
+  .btn-banner{
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 15px;
+    border-radius: 50px;
+    padding: 2rem  3rem;
+    text-transform: uppercase;
+  
+  }
+  .btn-select{
+    text-transform: uppercase;
+    text-decoration: none;
+    margin-top: 15px;
+    padding: 2rem  3rem;
+    text-transform: uppercase;
+  
+  }
   @keyframes animate{
     30%{
       transform: translate(0,-50px)rotate(180deg)scale(1);
@@ -204,6 +234,13 @@ font-weight: none;
  .img-special img{
  margin-left: 160px;
  }
+ .btn-banner, #btn-select{
+ justify-content: center;
+ align-items:center;
+ align-self:center;
+
+
+}
 }
 
 

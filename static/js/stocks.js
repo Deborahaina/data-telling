@@ -1,93 +1,120 @@
+var api = "XXKV8BK1DUIBV5EO"
+var dps = [];
+var company = null;
+var symbol = null;
+var chart = null;
+var columns = ["Date", "Open", "High", "Low", "Close", "Adjusted Close", "Volume"];
+var data1 = []
 
-//Build the data tables
-$(document).ready(function () {
-  d3.json("/stocks_data").then((stock_data)=>{
-    $('#summary-table').DataTable( {
-      data: stock_data,
-      columns: [
-          { data: 'Ticker' },
-          { data: 'Company' },
-          { data: 'Closing_Price' },
-          { data: 'Daily_Change' },
-          { data: 'Percent_Change' },
-          { data: 'Trade_Volume' },
-
-      ] 
-    })
-  });
-});
-
-function handleSubmit(){
-// Prevent the page from refreshing
-d3.event.preventDefault();
-
-// Select the input value from the form
-var inputValue = d3.select("#stock-input").node().value;
-console.log(inputValue);
-
-// clear the input value
-d3.select("#stock-input").node().value = "";
-
-buildPlots(inputValue);
-};
-
-function buildPlots(n){
-  d3.json("/stocks_data").then((stock_data) =>{
-  console.log(stock_data);
-
-
-  // Build the plot with the new stock
-  let  name = stock_data.Company;
-  let ticker = stock_data.Ticker;
-  let closingPrices = stock_data.Closing_Price;
-  var change = stock_data.Daily_Change;
-  let volume = stock_data.Trade_Volume;
-  var dates =  stock_data.fullDate;
-
-  var trace1 = {
-    type: "scatter",
-    mode: "lines",
-    name: closingPrices,
-    x: dates,
-    y: closingPrices,
-    line: {
-      color: "#17BECF"
-    }
-  };
-
-  var trace2 = {
-    type: "scatter",
-    mode: "lines",
-    name: change,
-    x: dates,
-    y: change,
-    line: {
-      color: "#17BECF"
-    }
-  };
-
-  var data = [trace1, trace2];
-
-  var layout = {
-    title: `Trending stock closing prices`,
-    xaxis: {
-      range: ['2020-07-29', '2020-09-29'],
-      type: "date"
-    },
-    yaxis: {
-      autorange: true,
-      range: [0 , 2000],
-      type: "linear"
-    }
-  };
-
-  Plotly.newPlot("plot", data, layout);
-
-  });
-
+function download(){
+  window.location = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol="+symbol+"&apikey="+api+"&datatype=csv";
 }
 
- 
+function getting_data(){
+  if(company !== null){
+    $.getJSON("https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol="+symbol+"&outputsize=full&apikey="+api)
+    .done(function(data){
+      var date = data["Time Series (Daily)"]
+      let a = 20;
+      let b = 7;
+      for(var d in date){
+        var r = d.split("-");
+        if(a-- > 0){
+          var value = date[d];
+          dps.unshift({x: new Date(parseInt(r[0]), parseInt(r[1])-1, parseInt(r[2])), y: parseFloat(value["1. open"])});
+          if(b-- > 0){
+            let c = [d, value["1. open"], value["2. high"], value["3. low"], value["4. close"], value["5. adjusted close"], value["6. volume"]];
+            data1.push(c);
+          }
+        }else{
+          break;
+        }
+      }
+      graph();
+      drawTable();
+      document.getElementById("loading_container").style.display = "none";
+      document.getElementById("download_data").style.display = "block";
+      document.getElementById("companies").disabled = false;
+      document.getElementById("get_data").disabled = false;
+      document.getElementById("chartContainer").disabled = false;
+    })
+    .fail(function(textStatus, error){
+      alert(textStatus+" "+error+"\nReload the page");
+    })
+  }
+}
 
-// Add event listener for submit button
-d3.select("#submit").on("click", handleSubmit);
+function graph(){
+  chart = new CanvasJS.Chart("chartContainer", {
+    title:{
+      text: company
+    },
+    animationEnabled: true,
+    theme: "light2",
+    axisY:{
+      title: "Open Prices",
+      includeZero: false
+    },
+    axisX:{
+      title: "Date",
+      valueFormatString: "DD-MMM"
+    },
+    data: [{        
+      type: "line",
+          indexLabelFontSize: 16,
+      dataPoints: dps
+    }]
+  });
+  chart.options.data[0].dataPoints = dps;
+  chart.render();
+}
+
+function getData(){
+  if(chart !== null){
+    chart.destroy();
+  }
+  data1 = [];
+  dps = [];
+  document.getElementById("table_container").innerHTML = "";
+  company = document.getElementById("companies").value;
+  let r = company.split("(");
+  symbol = r[1].substring(0, r[1].length-1);
+  document.getElementById("loading_container").style.display = "block";
+  document.getElementById("download_data").style.display = "none";
+  document.getElementById("companies").disabled = true;
+  document.getElementById("get_data").disabled = true;
+  document.getElementById("chartContainer").disabled = true;
+  getting_data();
+}
+
+//Create table from scratch
+function drawTable(){
+  var table_container = document.getElementById("table_container");
+  var heading = document.createElement("h1");
+  heading.id = "heading";
+  var cell = document.createTextNode("RECENT END OF DAY PRICES");
+  heading.appendChild(cell);
+  table_container.appendChild(heading);
+  var table = document.createElement("table");
+  table.className = "table";
+  var row = document.createElement("tr");
+  for(let i=0; i<columns.length; i++){
+    var col = document.createElement("th");
+    col.scope = "col";
+    cell = document.createTextNode(columns[i]);
+    col.appendChild(cell);
+    row.appendChild(col);
+  }
+  table.appendChild(row);
+  for(let i=0; i< 7;i++){
+    row = document.createElement("tr");
+    for(let j=0; j< 7; j++){
+      col = document.createElement("td");
+      cell = document.createTextNode(data1[i][j]);
+      col.appendChild(cell);
+      row.appendChild(col);
+    }
+    table.appendChild(row);
+  }
+  table_container.appendChild(table);
+}
