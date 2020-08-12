@@ -3,7 +3,7 @@ var dps = [];
 var company = null;
 var symbol = null;
 var chart = null;
-var columns = ["Date", "Open", "High", "Low", "Close", "Adjusted Close", "Volume"];
+var columns = ["Date", "Open", "High", "Low", "Close", "Adj Close", "Volume"];
 var data1 = []
 
 function download(){

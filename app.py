@@ -60,6 +60,10 @@ def index():
 def visuals():
     return render_template('stocks.html')
 
+@app.route("/mapping")
+def maps():
+    return render_template('maps.html')
+
 @app.route("/skills")
 def techincal_skills():
     return render_template('skills.html')
