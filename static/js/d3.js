@@ -1,5 +1,4 @@
 
-
 function makeResponsive(){
 
   const svgArea = d3.select('body').select('svg');
@@ -8,76 +7,96 @@ function makeResponsive(){
     svgArea.remove();
   }
   
-  Height = 500;
+  Height = 600;
   Width = 800;
 
-  const svg = d3.select('#scatter')
+  const svg = d3.select('#scattersvg')
   .append('svg')
   .attr('height', Height)
   .attr('width', Width);
 
- const margin ={
-   left:50,
-   top:30,
-   right:50,
-   bottom:400
- }
+ const margin ={left:100, top:100, right:50, bottom:300};
  const chartWidth = Height - margin.left - margin.right;
  const chartHeight = Width - margin.top - margin.bottom;
- const textPaddingL = 40;
- const textPaddingB = 40;
+ const circleRadius = 8;
+ const xAxisLabel='Household income($)';
+ const yAxisLabel ='Healthcare(%)';
+ const title = 'Household income vs Healthcare Access';
+
 
  const group = svg.append('g')
  .attr('transform', `translate(${margin.left},${margin.top})`);
 
 //Load Data in
- d3.csv('assets/data/data.csv').then(censusData =>{
+ d3.json('/census_data').then(censusData =>{
   censusData.forEach(d => {
     d.poverty = +d.poverty;
     d.healthcare = +d.healthcare;
+    d.income = +d.income;
+    d.obesity = +d.obesity;
   });
   console.log(censusData);
 
   //Set x and y linear scales 
-  const xValue = d => d.poverty;
+  const xValue = d => d.income;
   const yValue = d => d.healthcare;
+
  
-  const xScale = d3.scaleLinear()
-  .domain([8, d3.max(censusData, xValue )])
-  .range([0, chartWidth]);
- 
-  const yScale = d3.scaleLinear()
-  .domain([2, d3.max(censusData, yValue)])
-  .range([chartHeight, 0]);
-  console.log(yScale.domain());
+  
+const yScale = d3.scaleLinear()
+.domain(d3.extent(censusData, yValue))
+.range([chartHeight, 0]);
 
+const yAxis = d3.axisLeft(yScale)
+//.tickSize(-innerWidth);
 
-  const xAxis = d3.axisBottom(xScale)
-  .tickSize(-innerHeight);
-  const yAxis = d3.axisLeft(yScale)
-  .tickSize(-chartWidth);
+const xScale = d3.scaleLinear()
+.domain(d3.extent(censusData, xValue))
+.range([0, chartWidth + 200 ] );
 
-  group.append('g')
+const xAxis = d3.axisBottom(xScale)
+.tickFormat(d3.format('.2s'))
+//.tickSize(-innerHeight);
+
+  const xAxisGroup= group.append('g')
   .call(xAxis)
   .attr('transform', `translate(0,${chartHeight})`);
 
-  group.append('g')
+ const yAxisGroup = group.append('g')
   .call(yAxis)
 
+  xAxisGroup.append('text')
+  .attr('class','axis-label')
+  .attr('x', chartWidth / 2 +margin.top )
+  .attr('y', 50)
+  .attr('fill','black')
+  .text(xAxisLabel);
 
-  const circlesGroup = group.selectAll('circle')
+  yAxisGroup.append('text')
+  .attr('x', -chartHeight / 2 )
+  .attr('y', -53)
+  .attr('text-anchor','middle')
+  .attr('class','axis-label')
+  .attr('fill', 'black')
+  .attr('transform', `rotate(-90)`)
+  .text(yAxisLabel);
+
+  group.append('text')
+  .attr('class', 'title')
+  .attr('y',-10)
+  .text(title);
+  
+  let circlesGroup = group.selectAll('circle')
   .data(censusData)
   .enter()
   .append('circle')
-  .attr('r', 9)
-  .attr('cx', d => xScale(xValue(d)))
-  .attr('cy', d=> yScale(yValue(d)))
+  .attr('class', 'circleG')
   .attr('fill', 'steelblue')
-  .classed('stateCircle', true)
-  .attr('opacity', 0.8);
-
-  var circletext = group
-  .selectAll('.stateText')
+  .attr('cy', d=> yScale(yValue(d)))
+  .attr('cx', d=> xScale(xValue(d)))
+  .attr('r', circleRadius);
+  
+  var circletext = group.selectAll('.stateText')
   .data(censusData)
   .enter()
   .append('text')
@@ -85,25 +104,24 @@ function makeResponsive(){
   .attr('y', d => yScale(yValue(d)))
   .attr('text-anchor', 'middle')
   .text(function (d) { return d.abbr })
-  .attr('fill','white')
   .classed('stateText', true)
   .attr('font-size', '8px');
 
-  // Text for x-axis
-group.append("text")
-.attr("transform", "translate(" + (chartWidth/2) + ", " + (chartHeight + margin.top + 20) + ")")
-.attr("class", "aText")
-.style("text-anchor", "middle")
-.text("People Living In Poverty (%)")
-.attr("fill", "black");
+/* Initialize tooltip */
+var tip = d3.tip()
+.attr('class', 'd3-tip')
+.html(function (d) { return `${d.state} <br> Income: $${d.income} <br> Lacks Healthcare: ${d.healthcare}%`});
 
+/* Invoke the tip in the context of your visualization */
+circlesGroup.call(tip)
+.on("mouseover", tip.show)
+.on("mouseout", tip.hide);
 
 });
 
 }
 
-
-
-
-
 makeResponsive();
+
+// Event listener for window resize.
+d3.select(window).on("resize", makeResponsive);

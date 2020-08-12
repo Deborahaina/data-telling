@@ -16,7 +16,7 @@
 
       
       <!----Custom stylesheet-->  
-     <link rel="stylesheet"  href="../static/css/styles.css">
+      <link rel="stylesheet" href="../static/css/styles.css">
      <link rel="stylesheet" href="../static/css/forex.css">
 
      <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.slim.js"></script>
@@ -38,7 +38,7 @@
               <a class="nav-link link-special text-capitalize text-light font-weight-bold" href="/visualizations">Stock Time Series</a>
             </li>
             <li class="nav-item px-3 active">
-              <a class="nav-link link-special text-capitalize text-light font-weight-bold" href="#">Census Data</a>
+              <a class="nav-link link-special text-capitalize text-light font-weight-bold" href="/scatter">Census Data</a>
             </li>
             <li class="nav-item px-3 active">
               <a class="nav-link link-special text-capitalize text-light font-weight-bold" href="#">Mapping</a>
@@ -49,13 +49,14 @@
       
         <div class="jumbotron bg-secondary">
           <h1 class="display-3 text-light text-lead">Daily Stocks</h1>
-          <h4 class="text-lead text-light mt-2">This is a stock time series analysis using canvas.js, Data was pulled in from the alpha vantage stock api endpoint.
+          <div class="article" id="article-text">
+          <p class="text-lead font-weight-bold text-light mt-2">This is a time series analysis using canvas.js, Data was pulled in from the alpha vantage stock api endpoint.
             Unfortunately the Alpha vantage api does not support batch request which would have enabled us to query multiple symbols at once. Each symbol will have to pulled 
             in individually. But in life, there is always a workaround...
-            Both the chart and the table are updated dynamically whenever a new option is selected. Take a look!
-          </h4>
+            Both the chart and the table are updated dynamically whenever a new option is selected. Take a look!</p>
+          </div>
           <hr class="my-4">
-          <p class="text-light">For more information on how to use the Alpha vantage api or how to register for an api key please click on  Learn more.</p>
+          <p class="text-light font-weight-bold ">For more information on how to use the Alpha vantage api or how to register for an api key please click on  Learn more.</p>
           <p class="lead text-light">
             <a class="btn btn-primary btn-lg" href="https://www.alphavantage.co/documentation/" target="_blank" role="button">Learn more</a>
           </p>

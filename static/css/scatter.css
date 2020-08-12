@@ -1,0 +1,71 @@
+
+.stateText{
+    fill:white;
+}
+
+.circleG{
+    fill:steelblue;
+    opacity: 0.8;
+}
+
+.tick text{
+    fill:#635F5D;
+}
+.tick line{
+    stroke :#C0C0BB;
+}
+.axis-label{
+    font-size: 3em;
+    fill: #8E8388;
+}
+.title{
+    font-size: 2.8em;
+    fill :#635F5D;
+    margin-bottom: 3px;
+}
+#article-text{
+    font-size: 1.5em;
+}
+#link-special2{
+    font-size: 1.5em;
+    text-decoration: none;
+    border-bottom: groove #c59d5f;
+}
+
+.d3-tip {
+    padding: 6px;
+    position: relative;
+    font-size: 12px;
+    line-height: 1;
+    line-height: 1.5em;
+    color: #fff;
+    text-align: center;
+    text-transform: capitalize;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 4px;
+  }
+  @media(max-width:600px){
+    .nav-link {
+   text-decoration: none;
+   border-bottom: none;
+   border-top: none;
+   font-size:15px;
+   font-weight: none;
+    }
+   
+   #scattersvg{
+       overflow-x: auto;
+   }
+   #d3-header{
+       font-size: 25px;
+   }
+
+   #reference{
+       font-size: 20px;
+       margin-bottom: 5%;
+       margin-top:8%
+   }
+   #link-special2{
+    font-size: 1em;
+}
+    }

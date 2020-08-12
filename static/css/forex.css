@@ -1,3 +1,9 @@
+/* Stock analysis styling */
+
+#article-text{
+  font-size: 1.5em;
+}
+
 #loading_container{
     display: none; 
     width: 200px;
@@ -40,6 +46,9 @@
     margin-top: 20px;
     margin-left: 36%;
   }
+  /* End of stock analysis styling */
+
+  
 
   @media(max-width:600px){
     .nav-link {

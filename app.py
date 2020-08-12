@@ -60,13 +60,22 @@ def index():
 def visuals():
     return render_template('stocks.html')
 
-@app.route("/mapping")
-def maps():
-    return render_template('maps.html')
+@app.route("/scatter")
+def scatter():
+    return render_template('d3.html')
 
 @app.route("/skills")
 def techincal_skills():
     return render_template('skills.html')
+
+
+@app.route("/census_data")
+def censusData():
+    conn = engine.connect()
+    #create list of column names
+    census_df = pd.read_sql("SELECT * FROM census_data", conn)
+    census_json = census_df.to_dict(orient="records")
+    return jsonify(census_json)
 
 
 
