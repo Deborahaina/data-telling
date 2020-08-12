@@ -221,13 +221,12 @@ font-weight: none;
  }
 
  .text-area span{
-   font-size: 1rem;
+   font-size: 3rem;
  }
  #first-letter{
   font-family: var(--secondary-font);
-  font-size: 4rem;
+  font-size: 4.5rem;
   color: #c59d5f;
-  padding-bottom: 0.5rem;
   z-index: 600;
   opacity:0;
   animation: fadeUp 4.0s forwards;
