@@ -219,14 +219,13 @@ border-top: none;
 font-size:15px;
 font-weight: none;
  }
- 
+
  .text-area span{
    font-size: 1rem;
  }
-
  #first-letter{
   font-family: var(--secondary-font);
-  font-size: 3rem;
+  font-size: 4rem;
   color: #c59d5f;
   padding-bottom: 0.5rem;
   z-index: 600;
