@@ -40,3 +40,23 @@
     margin-top: 20px;
     margin-left: 36%;
   }
+
+  @media(max-width:720px){
+    .nav-link {
+   text-decoration: none;
+   border-bottom: none;
+   border-top: none;
+   font-size:15px;
+   font-weight: none;
+    }
+    .text-area span{
+      font-size: 2rem;
+    }
+    #chartContainer{
+        height: 300px;
+        width: 100%; 
+        margin-top: 5%;
+        margin-left: 13%;
+        margin-right: auto;
+      }
+    }
