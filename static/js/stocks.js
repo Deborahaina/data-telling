@@ -1,10 +1,11 @@
-var api = "XXKV8BK1DUIBV5EO"
-var dps = [];
-var company = null;
-var symbol = null;
-var chart = null;
-var columns = ["Date", "Open", "High", "Low", "Close", "Adj Close", "Volume"];
-var data1 = []
+
+const api ="XXKV8BK1DUIBV5EO";
+let dps = [];
+let company = null;
+let symbol = null;
+let chart = null;
+let columns = ["Date", "Open", "High", "Low", "Close", "Adj Close", "Volume"];
+let data1 = []
 
 function download(){
   window.location = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY_ADJUSTED&symbol="+symbol+"&apikey="+api+"&datatype=csv";
@@ -89,17 +90,18 @@ function getData(){
 
 //Create table from scratch
 function drawTable(){
-  var table_container = document.getElementById("table_container");
-  var heading = document.createElement("h1");
+  let table_container = document.getElementById("table_container");
+  let heading = document.createElement("h1");
   heading.id = "heading";
-  var cell = document.createTextNode("RECENT END OF DAY PRICES");
+  let cell = document.createTextNode("RECENT END OF DAY PRICES");
   heading.appendChild(cell);
   table_container.appendChild(heading);
-  var table = document.createElement("table");
+  let table = document.createElement("table");
   table.className = "table";
-  var row = document.createElement("tr");
+  //Create Columns --> 7 columns
+  let row = document.createElement("tr");
   for(let i=0; i<columns.length; i++){
-    var col = document.createElement("th");
+    let col = document.createElement("th");
     col.scope = "col";
     cell = document.createTextNode(columns[i]);
     col.appendChild(cell);

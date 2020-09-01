@@ -50,8 +50,6 @@ Base.prepare(engine, reflect=True)
 #Save reference to tables in the db
 #Stocks_table = Base.classes.trending_stocks
 
-
-
 @app.route("/")
 def index():
     return render_template('index.html')
@@ -67,6 +65,14 @@ def scatter():
 @app.route("/skills")
 def techincal_skills():
     return render_template('skills.html')
+
+@app.route("/mapping")
+def maps():
+    return render_template('choropleth.html')
+
+@app.route("/ML")
+def machine_learning():
+    return render_template('ML.html')
 
 
 @app.route("/census_data")
