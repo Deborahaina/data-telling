@@ -68,7 +68,7 @@ def techincal_skills():
 
 @app.route("/mapping")
 def maps():
-    return render_template('choropleth.html')
+    return render_template('map.html')
 
 @app.route("/ML")
 def machine_learning():
