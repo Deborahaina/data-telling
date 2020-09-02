@@ -9,3 +9,9 @@ body{
     height:80%;
 }
 
+#link-special2{
+  font-size: 1.5em;
+  color: hotpink;
+  text-decoration: none;
+  border-bottom: groove #c59d5f;
+}

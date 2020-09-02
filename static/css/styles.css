@@ -177,6 +177,9 @@ header {
     text-transform: uppercase;
   
   }
+
+
+
   @keyframes animate{
     30%{
       transform: translate(0,-50px)rotate(180deg)scale(1);
